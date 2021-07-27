@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<form method="POST">
+
+    {{form|crispy}}
+    {% csrf_token %}
+
+    <input type="submit" value="Sign up">
+</form>
+
+<script>
+    var rmv = document.querySelector('#hint_id_password1')
+    rmv.remove()
+</script>
+{% endblock %}

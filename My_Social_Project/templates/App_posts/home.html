@@ -1,0 +1,25 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+    
+        
+        {% if search %}
+        {% for user in result %}
+        <a href="{% url 'App_Login:user' username=user.username %}"><p>{{user}}</p></a>
+        {% endfor %}
+        {% else %}
+        
+        <h1>HOME PAGES</h1>
+        {% for post in all_post %}
+        <h6>{{post.author}}</h6>
+        <p>{{post.upload_data}}</p>
+        {% if post.caption %}
+            <p>{{post.caption}}</p>
+        {% endif %}
+        
+        <img src="/media/{{post.image}}" height="auto" width="400px" alt="">
+        <br><br>
+        {% endfor %}
+        
+        {% endif %}
+{% endblock %}
